@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Ludo</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+ <script type="text/javascript" >
+var count=0;
+var Tmove1A=0;
+var Tmove2A=0;
+var Tmove1B=0;
+var Tmove2B=0;
+   
+
+function game1A() {
+
+  var roll=6;
+  document.getElementById("1").innerHTML=roll;
+  count++;
+  if (count%2==0) {
+    alert("a");
+
+    
+    move1A(roll);
+   
+  }
+}
+
+function game1B() {
+
+  var roll=Math.floor(Math.random()*6+1);
+  document.getElementById("1").innerHTML=roll;
+  count++;
+  if (count%2!=0) {
+    alert('b');
+    
+    move1B(roll);
+   
+  }
+}
+function game2A() {
+
+  var roll=Math.floor(Math.random()*6+1);
+  document.getElementById("1").innerHTML=roll;
+  count++;
+  if (count%2==0) {
+
+    
+    move2A(roll);
+   
+  }
+}
+function game2B() {
+
+  var roll=Math.floor(Math.random()*6+1);
+  document.getElementById("1").innerHTML=roll;
+  count++;
+  if (count%2!=0) {
+    
+    move2B(roll);
+   
+  }
+}
+function move1A(roll){
+
+      if ((roll===6) && (Tmove1A==0)){
+      
+      Tmove1A=1;
+
+      move("square1A",Tmove1A);
+    }
+      else if ((Tmove1A!=0)&&(Tmove1A!=21)) {
+        var pre=document.getElementById("Tmove1A");
+        var pregoti=document.getElementById("square1A");
+        pre.removeChild(pregoti);
+        Tmove1A=roll+Tmove1A;
+        move("square1A",Tmove1A);
+    }
+      else{
+        Tmove1A==0;
+      }
+    }
+function move1B(roll){
+
+      if ((roll===6) && (Tmove1B==0)){
+      
+      Tmove1B=1;
+      moveB("square1B",Tmove1B);
+    }
+      else if ((Tmove1B!=0)&&(Tmove1B!=21)) {
+
+
+        Tmove1B=roll+Tmove1B;
+        moveB("square1B",Tmove1B);
+    }
+      else{
+        Tmove1B=0;
+      }
+    }
+ function move2A(roll){
+
+      if ((roll===6) && (Tmove2A==0) && (Tmove1A!=0)){
+         
+          Tmove2A=1;
+          move("square2A",Tmove2A);
+    }
+      else if ((Tmove2A!=0)&&(Tmove2A!=21)) {
+
+        
+        Tmove2A=roll+Tmove2A;
+        move("square2A",Tmove2A);
+    }
+      else{
+        Tmove2A=0;
+      }
+    } 
+ function move2B(roll){
+
+      if ((roll===6) && (Tmove2B==0) && (Tmove1B!=0)){
+         
+          Tmove2B=1;
+          moveB("square2B",Tmove2B);
+    }
+      else if ((Tmove2B!=0)&&(Tmove2B!=21)) {
+
+        
+        Tmove2B=roll+Tmove2B;
+        moveB("square2B",Tmove2B);
+    }
+      else{
+        Tmove2B=0;
+      }
+    }   
+function move(classname,Tmove){
+  
+
+  var init=document.getElementById(classname);
+  var fin=document.getElementById(Tmove);
+  fin.add(init);
+
+
+}
+
+function moveB(classname,Tmove){
+ if ((Tmove>=1)&&(Tmove<=11)) {
+  var init=document.getElementById(classname);
+  var fin=document.getElementById(Tmove+10);
+  fin.append(init);
+}
+else{
+
+  var init=document.getElementById(classname);
+  var fin=document.getElementById(Tmove-10);
+  fin.append(init);
+}
+}
+
+
+
+ </script>
+</head>
+<body>
+<style>
+#grid { 
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1vw;
+  position: relative;
+  top:80px;
+  }
+#grid > div  {
+  font-size: 2vw;
+  padding: .5em;
+  background: gold;
+  text-align: center;
+  margin: 2px;
+}
+#AB,.square1{
+  padding: 2em;
+ 
+  text-align: center;
+  height: 7px;
+  width: 7px;
+}
+
+</style>
+<div id="AB">
+ 
+  <div id="lockerA" ><div id ="square1A">Goti1A</div><div onclick="game1A()">GO</div>
+  <div id="square2A">Goti2A</div><div onclick="game2A()">rO</div></div>
+
+ 
+  <div id="lockerB" ><div id ="square1B">Goti1B</div><div onclick="game1B()">GO</div>
+  <div id="square2B">Goti2B</div><div onclick="game2B()">rO</div></div>
+
+
+
+</div>
+
+<div id="grid">
+  <div id="1">1</div>
+  <div id="2">2</div>
+  <div id="3">3</div>
+  <div id="4">4</div>
+  <div id="5">5</div>
+  <div id="6">6</div>
+  <div id="20">20</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="7">7</div>
+  <div id="19">19</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="8">8</div>
+  <div id="18">18</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="9">9</div>
+  <div id="17">17</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="p">p</div>
+  <div id="10">10</div>
+  <div id="16">16</div>
+  <div id="15">15</div>
+  <div id="14">14</div>
+  <div id="13">13</div>
+  <div id="12">12</div>
+  <div id="11">11</div>
+ 
+  
+  
+</div>
+
+
+</body>
+</html>
