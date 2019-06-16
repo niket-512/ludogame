@@ -15,7 +15,7 @@ var Tmove2B=0;
 function game1A() {
 
   var roll=6;
-  document.getElementById("1").innerHTML=roll;
+  document.getElementById("p1").innerHTML=roll;
   count++;
   if (count%2==0) {
     alert("a");
@@ -29,7 +29,7 @@ function game1A() {
 function game1B() {
 
   var roll=Math.floor(Math.random()*6+1);
-  document.getElementById("1").innerHTML=roll;
+  document.getElementById("p1").innerHTML=roll;
   count++;
   if (count%2!=0) {
     alert('b');
@@ -41,7 +41,7 @@ function game1B() {
 function game2A() {
 
   var roll=Math.floor(Math.random()*6+1);
-  document.getElementById("1").innerHTML=roll;
+  document.getElementById("p1").innerHTML=roll;
   count++;
   if (count%2==0) {
 
@@ -53,9 +53,10 @@ function game2A() {
 function game2B() {
 
   var roll=Math.floor(Math.random()*6+1);
-  document.getElementById("1").innerHTML=roll;
+  document.getElementById("p1").innerHTML=roll;
   count++;
   if (count%2!=0) {
+
     
     move2B(roll);
    
@@ -70,9 +71,7 @@ function move1A(roll){
       move("square1A",Tmove1A);
     }
       else if ((Tmove1A!=0)&&(Tmove1A!=21)) {
-        var pre=document.getElementById("Tmove1A");
-        var pregoti=document.getElementById("square1A");
-        pre.removeChild(pregoti);
+        
         Tmove1A=roll+Tmove1A;
         move("square1A",Tmove1A);
     }
@@ -136,7 +135,7 @@ function move(classname,Tmove){
 
   var init=document.getElementById(classname);
   var fin=document.getElementById(Tmove);
-  fin.add(init);
+  fin.append(init);
 
 
 }
@@ -165,34 +164,79 @@ else{
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 1vw;
+  grid-gap: 0.5vw;
   position: relative;
-  top:80px;
+  top:50px;
   }
 #grid > div  {
   font-size: 2vw;
   padding: .5em;
   background: gold;
+  height: 65px;
   text-align: center;
-  margin: 2px;
+  margin: .5px;
 }
-#AB,.square1{
-  padding: 2em;
- 
-  text-align: center;
-  height: 7px;
-  width: 7px;
+
+#lockerA{
+     position: relative;
+     padding:3em;
+     width: 40px;
+     height: 40px;
+     top: 2px;
+     left:2px;
+     background-color: red;
+     border-radius: 10px;
+
+
+
+}
+#lockerB{
+     
+     padding:3em;
+     text-align: center;
+     position: relative;
+     width: 40px;
+     height: 40px;
+     top: 612px;
+     float: right;
+     background-color: yellow;
+     border-radius: 10px;
+
+
+
+
+}
+.goti{
+    padding: .25em;
+    background-color: blue;
+    border-radius: 6px;
+    width: 90px;
+
+    
+    border-color: black;
+    text-align: center;
+
+
+}
+#only{
+  position: relative;
+
+   top:-430px;
+   left: 189px;
+
+
+
 }
 
 </style>
 <div id="AB">
  
-  <div id="lockerA" ><div id ="square1A">Goti1A</div><div onclick="game1A()">GO</div>
-  <div id="square2A">Goti2A</div><div onclick="game2A()">rO</div></div>
+  <div id="lockerA" ><div id ="square1A" class="goti">TokenA1</div><button onclick="game1A()">ClickA1</button>
+  <div id="square2A" class="goti">TokenA2</div><button onclick="game2A()">ClickA2</button></div>
 
  
-  <div id="lockerB" ><div id ="square1B">Goti1B</div><div onclick="game1B()">GO</div>
-  <div id="square2B">Goti2B</div><div onclick="game2B()">rO</div></div>
+  <div id="lockerB" ><div id ="square1B" class="goti">TokenB1</div><button onclick="game1B()">ClickB1</button>
+  <div id="square2B" class="goti">TokenB2</div><button onclick="game2B()">ClickB2</button></div>
 
 
 
@@ -213,7 +257,7 @@ else{
   <div id="7">7</div>
   <div id="19">19</div>
   <div id="p">p</div>
-  <div id="p">p</div>
+  <div id="p1">p</div>
   <div id="p">p</div>
   <div id="p">p</div>
   <div id="8">8</div>
@@ -238,6 +282,9 @@ else{
  
   
   
+</div>
+<div>
+  <img id="only"src="https://www.hiddenbrains.co.uk/wp-content/uploads/2017/09/Want-Build-Gaming-App-like-Ludo-gif.gif" height="380">
 </div>
 
 
