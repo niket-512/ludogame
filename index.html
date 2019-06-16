@@ -10,64 +10,64 @@ var Tmove1A=0;
 var Tmove2A=0;
 var Tmove1B=0;
 var Tmove2B=0;
+function startgame(){
+  var roll=Math.floor(Math.random()*6+1);
+  document.getElementById("roll").innerHTML=6;
+  count++;
+  if (count%2==0) {
+    alert('a');
+
+   
+  } else {
+    alert('b');
+
+
+  }
+
+
+
+}
    
 
 function game1A() {
-
-  var roll=6;
-  document.getElementById("p1").innerHTML=roll;
-  count++;
-  if (count%2==0) {
-    alert("a");
-
-    
+      
+  
+   
+    var roll=parseInt(document.getElementById("roll").innerHTML,10);
     move1A(roll);
    
-  }
+  
 }
 
 function game1B() {
 
-  var roll=Math.floor(Math.random()*6+1);
-  document.getElementById("p1").innerHTML=roll;
-  count++;
-  if (count%2!=0) {
-    alert('b');
-    
+  
+    var roll=parseInt(document.getElementById("roll").innerHTML,10);
     move1B(roll);
    
-  }
+  
 }
 function game2A() {
 
-  var roll=Math.floor(Math.random()*6+1);
-  document.getElementById("p1").innerHTML=roll;
-  count++;
-  if (count%2==0) {
-
-    
+  
+    var roll=parseInt(document.getElementById("roll").innerHTML,10);
     move2A(roll);
    
-  }
+  
 }
 function game2B() {
 
-  var roll=Math.floor(Math.random()*6+1);
-  document.getElementById("p1").innerHTML=roll;
-  count++;
-  if (count%2!=0) {
-
-    
+  
+    var roll=parseInt(document.getElementById("roll").innerHTML,10);
     move2B(roll);
    
-  }
+  
 }
 function move1A(roll){
 
       if ((roll===6) && (Tmove1A==0)){
       
       Tmove1A=1;
-
       move("square1A",Tmove1A);
     }
       else if ((Tmove1A!=0)&&(Tmove1A!=21)) {
@@ -222,11 +222,28 @@ else{
   position: relative;
 
    top:-430px;
-   left: 189px;
+   left: 155px;
 
 
 
 }
+#menu{
+  float: right;
+  position: relative;
+  height: 50px;
+  width: 200px;
+
+  background-color: rgb(200,43,45);
+  border-radius: 13px;
+  font-size: 30px;
+  display: flex;
+  top: -100px;
+  border-radius: 15px;
+}
+
+
+
+
 
 </style>
 <div id="AB">
@@ -237,10 +254,17 @@ else{
  
   <div id="lockerB" ><div id ="square1B" class="goti">TokenB1</div><button onclick="game1B()">ClickB1</button>
   <div id="square2B" class="goti">TokenB2</div><button onclick="game2B()">ClickB2</button></div>
+  <div id="menu">
+    <button id="startgame" onclick="startgame()">Startgame</button>
+    <div id="roll">Roll</div>
+  </div>
+  
+
 
 
 
 </div>
+
 
 <div id="grid">
   <div id="1">1</div>
@@ -284,7 +308,7 @@ else{
   
 </div>
 <div>
-  <img id="only"src="https://www.hiddenbrains.co.uk/wp-content/uploads/2017/09/Want-Build-Gaming-App-like-Ludo-gif.gif" height="380">
+  <img id="only"src="https://www.hiddenbrains.co.uk/wp-content/uploads/2017/09/Want-Build-Gaming-App-like-Ludo-gif.gif" height="380" width="600">
 </div>
 
 
