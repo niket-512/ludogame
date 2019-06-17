@@ -15,11 +15,11 @@ function startgame(){
   document.getElementById("roll").innerHTML=roll;
   count++;
   if (count%2==0) {
-    alert('A');
+    alert('a');
 
    
   } else {
-    alert('B');
+    alert('b');
 
 
   }
@@ -27,6 +27,7 @@ function startgame(){
 
 
 }
+   
 
 function game1A() {
       
@@ -130,26 +131,58 @@ function move1B(roll){
       }
     }   
 function move(classname,Tmove){
+
   
 
   var init=document.getElementById(classname);
   var fin=document.getElementById(Tmove);
-  fin.append(init);
+  if(fin.childNodes.length>=2){
+      document.getElementById("lockerB").append(fin.children[0]);
+      fin.removeChild(fin.children[0]);
 
+      fin.append(init);
+      
+    }
+  else{
+     fin.append(init); 
+}
 
 }
 
 function moveB(classname,Tmove){
+  
  if ((Tmove>=1)&&(Tmove<=11)) {
   var init=document.getElementById(classname);
   var fin=document.getElementById(Tmove+10);
-  fin.append(init);
+
+  if(fin.childNodes.length>=2){
+      document.getElementById("lockerA").append(fin.children[0]);
+      fin.removeChild(fin.children[0]);
+
+      fin.append(init);
+     
+    }
+else{
+ fin.append(init); 
+}
 }
 else{
 
   var init=document.getElementById(classname);
   var fin=document.getElementById(Tmove-10);
-  fin.append(init);
+  if(fin.childNodes.length>=2){
+      document.getElementById("lockerA").append(fin.children[0]);
+      fin.removeChild(fin.children[0]);
+      
+
+
+      fin.append(init);
+      
+    }
+else{
+ fin.append(init); 
+}
+
 }
 }
 
@@ -231,8 +264,7 @@ else{
   position: relative;
   height: 50px;
   width: 200px;
-  text-align:center;
-
+  text-align: center;
   background-color: rgb(200,43,45);
   border-radius: 13px;
   font-size: 30px;
@@ -255,7 +287,7 @@ else{
   <div id="lockerB" ><div id ="square1B" class="goti">TokenB1</div><button onclick="game1B()">ClickB1</button>
   <div id="square2B" class="goti">TokenB2</div><button onclick="game2B()">ClickB2</button></div>
   <div id="menu">
-    <button id="roll the dice" onclick="startgame()">Startgame</button>
+    <button id="startgame" onclick="startgame()">Startgame</button>
     <div id="roll">Roll</div>
   </div>
   
